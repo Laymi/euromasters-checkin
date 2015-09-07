@@ -1,0 +1,19 @@
+template(name='Individual')
+  #home
+    h3 Showing guestlist for {{first_name}} {{last_name}}
+
+    if guests
+      table
+        thead
+          tr
+            th ID
+            th Name
+            th Contact
+            th Expected Time of Arrival
+        each guests
+          tbody
+            tr
+              td {{_id}}
+              td {{info.name}}
+              td {{info.contact}}
+              td {{info.expectedTimeOfArrival}}
