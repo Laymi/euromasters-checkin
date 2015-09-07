@@ -22,8 +22,8 @@ Router.map ->
   @route 'individual'
   path: '/individual/:_id'
 
-  @route 'guestlist'
-  path: '/guestlist'
+  @route 'guests'
+  path: '/guests'
 
   @route 'hosts'
   path: '/hosts'
