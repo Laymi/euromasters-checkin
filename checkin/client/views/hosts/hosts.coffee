@@ -1,7 +1,8 @@
-#Meteor.subscribe 'allShifts'
+#Meteor.subscribe 'allAssignments'
 Template.Hosts.helpers
   hosts: ->
     hosts = Hosts.find().fetch()
+    console.log 'hosts', hosts
     if hosts.length then hosts else null
 
   userId: ->

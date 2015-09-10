@@ -11,7 +11,7 @@ Router.map ->
   @route 'home',
   path: '/',
 #  waitOn: ->
-    #Meteor.subscribe 'allShifts',
+    #Meteor.subscribe 'allAssignments',
   cache: true
 # Non-Administrative routes
   @route 'login', path: '/login'
@@ -27,7 +27,10 @@ Router.map ->
 
   @route 'hosts'
   path: '/hosts'
-  #waitOn: -> Meteor.subscribe 'findAllShiftsForStudent', Router?.current()?.params?._id,
+
+  @route 'users'
+  path: '/users'
+  #waitOn: -> Meteor.subscribe 'findAllAssignmentsForStudent', Router?.current()?.params?._id,
   cache: false
 
   @route 'publicstatistics', path: '/publicstatistics'

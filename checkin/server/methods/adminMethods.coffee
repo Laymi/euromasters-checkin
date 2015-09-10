@@ -26,7 +26,7 @@ Meteor.methods
         "assignedStudents": []
         "createdAt": new Date
 
-      Shifts.insert newShift
+      Assignments.insert newShift
 
   createExampleUser: ->
     Accounts.createUser

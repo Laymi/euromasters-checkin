@@ -1,8 +1,8 @@
 Template.Assignments.helpers
 
-  shifts: ->
-    shifts = Shifts.find().fetch()
-    if shifts.length then shifts else null
+  assignments: ->
+    assignments = Assignments.find().fetch()
+    if assignments.length then assignments else null
 
   userId: ->
     Router?.current()?.params?._id
@@ -29,4 +29,4 @@ Template.Assignments.events
         toastr.success 'Ok.'
 
   'focus #studentN': ->
-    studentN.value = Shifts.findOne(automaticShiftSelection.value)?.workload or ''
+    studentN.value = Assignments.findOne(automaticShiftSelection.value)?.workload or ''

@@ -1,8 +1,8 @@
-#Meteor.subscribe 'allShifts'
+#Meteor.subscribe 'allAssignments'
 Template.Individual.helpers
-  shifts: ->
-    shifts = Shifts.find().fetch()
-    if shifts.length then shifts else null
+  assignments: ->
+    assignments = Assignments.find().fetch()
+    if assignments.length then assignments else null
 
   userId: ->
     Router?.current()?.params?._id

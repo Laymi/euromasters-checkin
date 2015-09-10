@@ -1,4 +1,4 @@
-#Meteor.subscribe 'allShifts'
+#Meteor.subscribe 'allAssignments'
 Template.Users.helpers
   users: ->
     users = Meteor.users.find().fetch()

@@ -11,13 +11,13 @@ Meteor.methods
     for i in [0...studentN]
       counter = 0
       possibleStudentWithLowestWorkload = Students.find({ $query: {}, $orderby: { workload : 1 }})?.fetch()?[counter]
-      studentsAlreadyAssignedToShift = Shifts.findOne(shiftId)?.assignedStudents
+      studentsAlreadyAssignedToShift = Assignments.findOne(shiftId)?.assignedStudents
       counter++
       while studentsAlreadyAssignedToShift.indexOf(possibleStudentWithLowestWorkload?._id) > -1
         possibleStudentWithLowestWorkload = Students.find({ $query: {}, $orderby: { workload : 1 }})?.fetch()?[counter]
         counter++
       studentWithLowestWorkload = possibleStudentWithLowestWorkload
       if studentWithLowestWorkload?._id?
-        Shifts.update shiftId, $addToSet: assignedStudents:studentWithLowestWorkload?._id
+        Assignments.update shiftId, $addToSet: assignedStudents:studentWithLowestWorkload?._id
       else
         throw new Meteor.Error 'Insufficient students available'

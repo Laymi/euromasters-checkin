@@ -1,4 +1,4 @@
-#Meteor.subscribe 'allShifts'
+#Meteor.subscribe 'allAssignments'
 Template.Guests.helpers
   guests: ->
     guests = Guests.find().fetch()

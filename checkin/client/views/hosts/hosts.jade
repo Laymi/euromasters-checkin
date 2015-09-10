@@ -8,10 +8,11 @@ template(name='Hosts')
         thead
           tr
             th ID
-            th Name
+            th First Name
+            th Last Name
             th Contact
-            th Flatmate
-            th Contact Flatmate
+            th Guest
+            th Contact Guest
             th Location
             th Info
             th Capacity
@@ -28,16 +29,16 @@ template(name='Hosts')
               td
                 input(type="text",id="contact")
               td
-                input(type="text",id="flatmate", placeholder="-")
+                input(type="text",id="guest", placeholder="-")
               td
-                input(type="text",id="contactFlatmate", placeholder="-")
+                input(type="text",id="contactGuest", placeholder="-")
               td
                 input(type="text",id="location")
               td
                 input(type="text",id="info")
               td
                 input(type="text",id="capacity")
-          each shifts
+          each hosts
             tr
               td
                 span(id="{{_id}}-_id") {{_id}}
@@ -46,11 +47,11 @@ template(name='Hosts')
               td              
                 span(id="{{_id}}-lastname") {{info.last_name}}
               td
-                span(id="{{_id}}-contact") {{info.contect}}
+                span(id="{{_id}}-contact") {{info.contact}}
               td
-                span(id="{{_id}}-flatmate") {{info.flatmate}}
+                span(id="{{_id}}-guest") {{info.guest}}
               td
-                span(id="{{_id}}-flatmateContact") {{info.flatmateContact}}
+                span(id="{{_id}}-guestContact") {{info.guestContact}}
               td
                 span(id="{{_id}}-location") {{info.location}}
               td
