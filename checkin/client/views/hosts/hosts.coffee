@@ -1,8 +1,8 @@
 #Meteor.subscribe 'allShifts'
-Template.Shiftlist.helpers
-  shifts: ->
-    shifts = Shifts.find().fetch()
-    if shifts.length then shifts else null
+Template.Hosts.helpers
+  hosts: ->
+    hosts = Hosts.find().fetch()
+    if hosts.length then hosts else null
 
   userId: ->
     Router?.current()?.params?._id
@@ -10,7 +10,7 @@ Template.Shiftlist.helpers
   formatDate: (date) ->
     moment(date).format('MM-DD-YYYY hh:mm:ss')
 
-Template.Shiftlist.events
+Template.Hosts.events
   "click .editbtn": (event) ->
     event.preventDefault()
 

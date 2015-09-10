@@ -1,4 +1,4 @@
-template(name='guests')
+template(name='Guests')
   #guests
     h3 Guests
 
@@ -24,11 +24,11 @@ template(name='guests')
               td
                 input(type="text",id="last_name")
               td
-                input(type="text",id="hostName", disabled)
+                input(type="text",id="hostname")
               td
                 input(type="text",id="contact")
               td
-          each students
+          each guests
             tr
               td
                 span(id="{{_id}}-_id") {{_id}}
@@ -37,7 +37,7 @@ template(name='guests')
               td
                 span(id="{{_id}}-last_name") {{last_name}}
               td
-                span(id="{{_id}}-hostName") {{hostName}}
+                span(id="{{_id}}-hostname") {{hostname}}
               td
                 span(id="{{_id}}-contact") {{contact}}
               td

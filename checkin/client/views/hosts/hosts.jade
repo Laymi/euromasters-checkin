@@ -22,7 +22,9 @@ template(name='hosts')
                 a(class='waves-effect waves-light btn', id='addNewHost') Add new
                 input(type="text",id="_id",style="display:none")
               td
-                input(type="text",id="name")
+                input(type="text",id="firstname")
+              td
+                input(type="text",id="lastname")
               td
                 input(type="text",id="contact")
               td
@@ -40,7 +42,9 @@ template(name='hosts')
               td
                 span(id="{{_id}}-_id") {{_id}}
               td
-                span(id="{{_id}}-name") {{info.name}}
+                span(id="{{_id}}-firstname") {{info.first_name}}
+              td              
+                span(id="{{_id}}-lastname") {{info.last_name}}
               td
                 span(id="{{_id}}-contact") {{info.contect}}
               td
@@ -52,7 +56,7 @@ template(name='hosts')
               td
                 span(id="{{_id}}-info") {{info.info}}
               td
-                span(id="{{_id}}-amountOfGuests") {{info.capacity}}
+                span(id="{{_id}}-capacity") {{info.capacity}}
               td
                 a(class='waves-effect waves-light btn deletebtn', name='{{_id}}') Delete
                 a(class='waves-effect waves-light btn editbtn', name='{{_id}}') Edit

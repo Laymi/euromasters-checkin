@@ -1,6 +1,6 @@
-@hosts = new Mongo.Collection 'hosts'
+@Hosts = new Mongo.Collection 'hosts'
 
 if Meteor.isServer
   # XXX Temporary permission
-  hosts.allow
+  Hosts.allow
     insert: -> true
