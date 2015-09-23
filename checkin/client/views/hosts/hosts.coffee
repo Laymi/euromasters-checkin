@@ -15,35 +15,37 @@ Template.Hosts.events
   "click .editbtn": (event) ->
     event.preventDefault()
 
-    Meteor.call 'deleteShiftById', event.target.name
+    Meteor.call 'deleteHostById', event.target.name
     document.getElementById('_id').value = document.getElementById(event.target.name + '-' + '_id').innerText
-    document.getElementById('supervisor').value = document.getElementById(event.target.name + '-' + 'supervisor').innerText
-    document.getElementById('supervisorContact').value = document.getElementById(event.target.name + '-' + 'supervisorContact').innerText
+    document.getElementById('first_name').value = document.getElementById(event.target.name + '-' + 'first_name').innerText
+    document.getElementById('last_name').value = document.getElementById(event.target.name + '-' + 'last_name').innerText
+    document.getElementById('contact').value = document.getElementById(event.target.name + '-' + 'contact').innerText
+    document.getElementById('guest').value = document.getElementById(event.target.name + '-' + 'guest').innerText
+    document.getElementById('contactGuest').value = document.getElementById(event.target.name + '-' + 'contactGuest').innerText
     document.getElementById('location').value = document.getElementById(event.target.name + '-' + 'location').innerText
-    document.getElementById('start').value = document.getElementById(event.target.name + '-' + 'start').innerText
-    document.getElementById('end').value = document.getElementById(event.target.name + '-' + 'end').innerText
     document.getElementById('info').value = document.getElementById(event.target.name + '-' + 'info').innerText
-    document.getElementById('requiredAmountOfStudents').value = document.getElementById(event.target.name + '-' + 'requiredAmountOfStudents').innerText
+    document.getElementById('capacity').value = document.getElementById(event.target.name + '-' + 'capacity').innerText
+
 
   "click .deletebtn": (event) ->
     event.preventDefault()
 
-    Meteor.call 'deleteShiftById', event.target.name
+    Meteor.call 'deleteHostById', event.target.name
 
-  "click #addNewShift": (event) ->
+  "click #addNewGuest": (event) ->
     event.preventDefault()
     newShift =
       "_id": document.getElementById('_id').value or Random.id()
       "info" : {
-        "supervisor" : document.getElementById('supervisor').value
-        "supervisorContact" : document.getElementById('supervisorContact').value
-        "location" : document.getElementById('location').value
-        "info" : document.getElementById('info').value
-        "start": new Date document.getElementById('start').value
-        "end": new Date document.getElementById('end').value
-        "requiredAmountOfStudents": document.getElementById('requiredAmountOfStudents').value
+        "first_name" : document.getElementById('first_name').value
+        "last_name" : document.getElementById('last_name').value
+        "contact" : document.getElementById('contact').value
+        "guest" : document.getElementById('guest').value
+        "contactGuest": new Date document.getElementById('contactGuest').value
+        "location": new Date document.getElementById('location').value
+        "info": document.getElementById('info').value
+        "capacity": document.getElementById('capacity').value
       }
-      "assignedStudents": []
       "createdAt": new Date
 
     Meteor.call 'addNewShift', newShift

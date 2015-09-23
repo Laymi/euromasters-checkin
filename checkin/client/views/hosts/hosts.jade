@@ -11,7 +11,7 @@ template(name='Hosts')
             th First Name
             th Last Name
             th Contact
-            th Guest
+            th Guests
             th Contact Guest
             th Location
             th Info
@@ -29,9 +29,9 @@ template(name='Hosts')
               td
                 input(type="text",id="contact")
               td
-                input(type="text",id="guest", placeholder="-")
+                input(type="text",id="guest", disabled)
               td
-                input(type="text",id="contactGuest", placeholder="-")
+                input(type="text",id="contactGuest")
               td
                 input(type="text",id="location")
               td
@@ -49,7 +49,7 @@ template(name='Hosts')
               td
                 span(id="{{_id}}-contact") {{info.contact}}
               td
-                span(id="{{_id}}-guest") {{info.guest}}
+                span(id="{{_id}}-guest") {{info.guests}}
               td
                 span(id="{{_id}}-guestContact") {{info.guestContact}}
               td
