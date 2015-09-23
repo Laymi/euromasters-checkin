@@ -1,22 +1,19 @@
+#Meteor.subscribe 'allShifts'
 Template.Assignments.helpers
+  hosts: ->
+    hosts = Hosts.find().fetch()
+    console.log 'hosts', hosts
+    if hosts.length then hosts else null
 
-  assignments: ->
-    assignments = Assignments.find().fetch()
-    if assignments.length then assignments else null
+  guests: ->
+    guests = Guests.find().fetch()
+    console.log 'guest', guests
+    if guests.length then guests else null
 
-  userId: ->
-    Router?.current()?.params?._id
-
-  formatDate: (date) ->
-    moment(date).format('MM-DD-YYYY hh:mm:ss')
-
-  students: ->
-    students = Students.find().fetch()
-    if students.length then students else null
 
 Template.Assignments.events
-  'click #manuallyAssignStudentToShift': ->
-    Meteor.call 'assignStudentToShift', document.getElementById('manualStudentSelection').value, document.getElementById('manualShiftSelection').value
+  'click #manuallyAssignGuestsToHostToShift': ->
+    Meteor.call 'assignGueststToHosts', document.getElementById('manualGuestSelection').value, document.getElementById('manualHostSelection').value
 
   'click #automaticallyAssignStudentsToShift': ->
     shiftId = document.getElementById('automaticShiftSelection').value
@@ -29,4 +26,4 @@ Template.Assignments.events
         toastr.success 'Ok.'
 
   'focus #studentN': ->
-    studentN.value = Assignments.findOne(automaticShiftSelection.value)?.workload or ''
+    studentN.value = Shifts.findOne(automaticShiftSelection.value)?.workload or ''

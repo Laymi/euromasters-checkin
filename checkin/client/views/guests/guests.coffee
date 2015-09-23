@@ -13,8 +13,8 @@ Template.Guests.events
       Meteor.call 'deleteGuestById', event.target.name
       document.getElementById('first_name').value = document.getElementById(event.target.name + '-' + 'first_name').innerText
       document.getElementById('last_name').value = document.getElementById(event.target.name + '-' + 'last_name').innerText
-      document.getElementById('expectedTimeOfArrival').value = document.getElementById(event.target.name + '-' + 'expectedTimeOfArrival').innerText
       document.getElementById('hostname').value = document.getElementById(event.target.name + '-' + 'hostname').innerText
+      document.getElementById('expectedTimeOfArrival').value = document.getElementById(event.target.name + '-' + 'expectedTimeOfArrival').innerText
       document.getElementById('contact').value = document.getElementById(event.target.name + '-' + 'contact').innerText
       document.getElementById('_id').value = document.getElementById(event.target.name + '-' + '_id').innerText
 
@@ -29,7 +29,8 @@ Template.Guests.events
       "_id": document.getElementById('_id').value or Random.id()
       "first_name" : document.getElementById('first_name').value
       "last_name" : document.getElementById('last_name').value
-      "hostname" : document.getElementById('workload').value
+      "hostname" : document.getElementById('hostname').value
+      "expectedTimeOfArrival" : document.getElementById('expectedTimeOfArrival').value
       "contact" : document.getElementById('contact').value
       "createdAt": new Date
 
