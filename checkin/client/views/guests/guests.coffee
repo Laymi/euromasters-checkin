@@ -37,3 +37,8 @@ Template.Guests.events
     Meteor.call 'addNewGuest', newGuest
 
     document.getElementById('_id').value = ''
+    document.getElementById('first_name').value = ''
+    document.getElementById('last_name').value = ''
+    document.getElementById('hostname').value = ''
+    document.getElementById('expectedTimeOfArrival').value = ''
+    document.getElementById('contact').value = ''
