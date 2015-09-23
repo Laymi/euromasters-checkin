@@ -1,4 +1,4 @@
 Meteor.methods
-  deleteShiftById: (_id) ->
+  deleteHostById: (_id) ->
     check _id, String
     Assignments.remove _id
