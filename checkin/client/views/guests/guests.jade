@@ -12,6 +12,7 @@ template(name='Guests')
             th First Name
             th Last Name
             th Host
+            th ETA
             th Contact
             th Delete/Edit
         tbody
@@ -26,6 +27,8 @@ template(name='Guests')
               td
                 input(type="text",id="hostname")
               td
+                input(type="text",id="expectedTimeOfArrival")
+              td
                 input(type="text",id="contact")
               td
           each guests
@@ -38,6 +41,8 @@ template(name='Guests')
                 span(id="{{_id}}-last_name") {{last_name}}
               td
                 span(id="{{_id}}-hostname") {{hostname}}
+              td
+                span(id="{{_id}}-expectedTimeOfArrival") {{expectedTimeOfArrival}}
               td
                 span(id="{{_id}}-contact") {{contact}}
               td
