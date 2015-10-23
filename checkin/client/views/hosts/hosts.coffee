@@ -15,6 +15,8 @@ Template.Hosts.events
   "click .editbtn": (event) ->
     event.preventDefault()
 
+    console.log 'editbtn'
+
     Meteor.call 'deleteHostById', event.target.name
     document.getElementById('_id').value = document.getElementById(event.target.name + '-' + '_id').innerText
     document.getElementById('first_name').value = document.getElementById(event.target.name + '-' + 'first_name').innerText
@@ -32,15 +34,20 @@ Template.Hosts.events
 
     Meteor.call 'deleteHostById', event.target.name
 
-  "click #addNewGuest": (event) ->
+  "click #addNewHost": (event) ->
     event.preventDefault()
-    newShift =
+
+    console.log 'addNewHost'
+
+    guests = document.getElementById('guest').value.replace(" ", "").split(",")
+
+    newHost =
       "_id": document.getElementById('_id').value or Random.id()
       "info" : {
         "first_name" : document.getElementById('first_name').value
         "last_name" : document.getElementById('last_name').value
         "contact" : document.getElementById('contact').value
-        "guest" : document.getElementById('guest').value
+        "guests" : guests
         "contactGuest": new Date document.getElementById('contactGuest').value
         "location": new Date document.getElementById('location').value
         "info": document.getElementById('info').value
@@ -48,6 +55,6 @@ Template.Hosts.events
       }
       "createdAt": new Date
 
-    Meteor.call 'addNewShift', newShift
+    Meteor.call 'addNewHost', newHost
 
     document.getElementById('_id').value = ''

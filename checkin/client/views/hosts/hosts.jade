@@ -23,9 +23,9 @@ template(name='Hosts')
                 a(class='waves-effect waves-light btn', id='addNewHost') Add new
                 input(type="text",id="_id",style="display:none")
               td
-                input(type="text",id="firstname")
+                input(type="text",id="first_name")
               td
-                input(type="text",id="lastname")
+                input(type="text",id="last_name")
               td
                 input(type="text",id="contact")
               td
@@ -43,15 +43,15 @@ template(name='Hosts')
               td
                 span(id="{{_id}}-_id") {{_id}}
               td
-                span(id="{{_id}}-firstname") {{info.first_name}}
+                span(id="{{_id}}-first_name") {{info.first_name}}
               td              
-                span(id="{{_id}}-lastname") {{info.last_name}}
+                span(id="{{_id}}-last_name") {{info.last_name}}
               td
                 span(id="{{_id}}-contact") {{info.contact}}
               td
                 span(id="{{_id}}-guest") {{info.guests}}
               td
-                span(id="{{_id}}-guestContact") {{info.guestContact}}
+                span(id="{{_id}}-contactGuest") {{info.guestContact}}
               td
                 span(id="{{_id}}-location") {{info.location}}
               td

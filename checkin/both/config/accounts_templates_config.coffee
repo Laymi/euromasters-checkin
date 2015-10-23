@@ -47,7 +47,7 @@ AccountsTemplates.addFields [
     minLength: 6
     errStr: 'Password must have at least 6 characters'
   ,
-    _id: 'firstName'
+    _id: 'first_name'
     type: 'text'
     required: true
     displayName: 'First Name'
