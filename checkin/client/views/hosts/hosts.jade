@@ -16,7 +16,7 @@ template(name='Hosts')
             th Location
             th Info
             th Guestload
-            th Delete / Edit
+            th Delete / Edit / Mail
         tbody
             tr
               td
@@ -61,3 +61,5 @@ template(name='Hosts')
               td
                 a(class='waves-effect waves-light btn deletebtn', name='{{_id}}') Delete
                 a(class='waves-effect waves-light btn editbtn', name='{{_id}}') Edit
+                a(class='waves-effect waves-light btn mailbtn', name='{{_id}}') Auto Mail
+                a.contact(class='waves-effect waves-light btn',href='mailto:test@user.com?subject=Hello!') Manual Email
