@@ -10,7 +10,7 @@ Meteor.methods
 
     for i in [0...hostN]
       counter = 0
-      possibleHostWithLowestWorkload = Hosts.find({ $query: {}, $orderby: { workload : 1 }})?.fetch()?[counter]
+      possibleHostWithLowestGuestload = Hosts.find({ $query: {}, $orderby: { guestload : 1 }})?.fetch()?[counter]
       hostsAlreadyAssignedToGuest = Assignments.findOne(guestId)?.assignedHosts
       counter++
       while hostsAlreadyAssignedToGuest.indexOf(possibleHostWithLowestWorkload?._id) > -1

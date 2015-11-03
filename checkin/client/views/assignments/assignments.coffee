@@ -12,8 +12,8 @@ Template.Assignments.helpers
 
 
 Template.Assignments.events
-  'click #manuallyAssignGuestsToHosts': ->
-    Meteor.call 'assignGueststToHosts', document.getElementById('manualGuestSelection').value, document.getElementById('manualHostSelection').value
+  'click #manuallyAssignGuestToHosts': ->
+    Meteor.call 'assignGuestToHosts', document.getElementById('manualGuestSelection').value, document.getElementById('manualHostSelection').value
 
   'click #automaticallyAssignGuestsToHosts': ->
     guestId = document.getElementById('automaticGuestSelection').value
@@ -26,4 +26,4 @@ Template.Assignments.events
         toastr.success 'Ok.'
 
   'focus #hostN': ->
-    hostN.value = Hosts.findOne(automaticHostSelection.value)?.guestLoad or ''
+    hostN.value = Hosts.findOne(automaticHostSelection.value)?.guestload or ''

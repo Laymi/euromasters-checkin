@@ -26,7 +26,7 @@ Template.Hosts.events
     document.getElementById('contactGuest').value = document.getElementById(event.target.name + '-' + 'contactGuest').innerText
     document.getElementById('location').value = document.getElementById(event.target.name + '-' + 'location').innerText
     document.getElementById('info').value = document.getElementById(event.target.name + '-' + 'info').innerText
-    document.getElementById('capacity').value = document.getElementById(event.target.name + '-' + 'capacity').innerText
+    document.getElementById('guestload').value = document.getElementById(event.target.name + '-' + 'guestload').innerText
 
 
   "click .deletebtn": (event) ->
@@ -51,7 +51,7 @@ Template.Hosts.events
         "contactGuest": new Date document.getElementById('contactGuest').value
         "location": new Date document.getElementById('location').value
         "info": document.getElementById('info').value
-        "capacity": document.getElementById('capacity').value
+        "guestload": document.getElementById('guestload').value
       }
       "createdAt": new Date
 

@@ -15,7 +15,7 @@ template(name='Hosts')
             th Contact Guest
             th Location
             th Info
-            th GuestLoad
+            th Guestload
             th Delete / Edit
         tbody
             tr
@@ -37,7 +37,7 @@ template(name='Hosts')
               td
                 input(type="text",id="info")
               td
-                input(type="text",id="guestLoad")
+                input(type="text",id="guestload")
           each hosts
             tr
               td
@@ -57,7 +57,7 @@ template(name='Hosts')
               td
                 span(id="{{_id}}-info") {{info.info}}
               td
-                span(id="{{_id}}-guestLoad") {{info.guestLoad}}
+                span(id="{{_id}}-guestload") {{info.guestload}}
               td
                 a(class='waves-effect waves-light btn deletebtn', name='{{_id}}') Delete
                 a(class='waves-effect waves-light btn editbtn', name='{{_id}}') Edit
