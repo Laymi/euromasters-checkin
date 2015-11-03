@@ -1,0 +1,63 @@
+template(name='Hosts')
+  #hosts
+    h3 List of hosts
+    if hosts
+      h5 Showing global List of hosts
+
+      table
+        thead
+          tr
+            th ID
+            th First Name
+            th Last Name
+            th Contact
+            th Guests
+            th Contact Guest
+            th Location
+            th Info
+            th Capacity
+            th Delete / Edit
+        tbody
+            tr
+              td
+                a(class='waves-effect waves-light btn', id='addNewHost') Add new
+                input(type="text",id="_id",style="display:none")
+              td
+                input(type="text",id="first_name")
+              td
+                input(type="text",id="last_name")
+              td
+                input(type="text",id="contact")
+              td
+                input(type="text",id="guest", disabled)
+              td
+                input(type="text",id="contactGuest")
+              td
+                input(type="text",id="location")
+              td
+                input(type="text",id="info")
+              td
+                input(type="text",id="capacity")
+          each hosts
+            tr
+              td
+                span(id="{{_id}}-_id") {{_id}}
+              td
+                span(id="{{_id}}-first_name") {{info.first_name}}
+              td              
+                span(id="{{_id}}-last_name") {{info.last_name}}
+              td
+                span(id="{{_id}}-contact") {{info.contact}}
+              td
+                span(id="{{_id}}-guest") {{info.guests}}
+              td
+                span(id="{{_id}}-contactGuest") {{info.guestContact}}
+              td
+                span(id="{{_id}}-location") {{info.location}}
+              td
+                span(id="{{_id}}-info") {{info.info}}
+              td
+                span(id="{{_id}}-capacity") {{info.capacity}}
+              td
+                a(class='waves-effect waves-light btn deletebtn', name='{{_id}}') Delete
+                a(class='waves-effect waves-light btn editbtn', name='{{_id}}') Edit

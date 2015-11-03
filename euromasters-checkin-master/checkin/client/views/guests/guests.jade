@@ -1,0 +1,50 @@
+template(name='Guests')
+  #guests
+    h3 Guests
+
+    if guests
+      h5 Showing Guests
+
+      table
+        thead
+          tr
+            th ID
+            th First Name
+            th Last Name
+            th Host
+            th ETA
+            th Contact
+            th Delete/Edit
+        tbody
+            tr
+              td
+                a(class='waves-effect waves-light btn', id='addNewStudent') Add new
+                input(type="text",id="_id", style="display:none")
+              td
+                input(type="text",id="first_name")
+              td
+                input(type="text",id="last_name")
+              td
+                input(type="text",id="hostname")
+              td
+                input(type="text",id="expectedTimeOfArrival")
+              td
+                input(type="text",id="contact")
+              td
+          each guests
+            tr
+              td
+                span(id="{{_id}}-_id") {{_id}}
+              td
+                span(id="{{_id}}-first_name") {{first_name}}
+              td
+                span(id="{{_id}}-last_name") {{last_name}}
+              td
+                span(id="{{_id}}-hostname") {{hostname}}
+              td
+                span(id="{{_id}}-expectedTimeOfArrival") {{expectedTimeOfArrival}}
+              td
+                span(id="{{_id}}-contact") {{contact}}
+              td
+                a(class='waves-effect waves-light btn deletebtn', name='{{_id}}') Delete
+                a(class='waves-effect waves-light btn editbtn', name='{{_id}}') Edit

@@ -1,0 +1,73 @@
+template(name='Assignments')
+  #assignments
+    h3 Assignments
+    h5 Showing all hosts
+
+
+    a(class='waves-effect waves-light btn', id='automaticallyAssignAllGuestsToHost' style="margin-top:20px; width:auto") Assign all guests
+
+    table
+      thead
+          th(style="width:50%") Manual
+          th(style="width:50%") Automatic
+      tbody
+        td(style="width:50%")
+          | Host(_id)
+          input.validate(type='text', id="manualAssignmentSelection")
+          | Guest(_id)
+          input.validate(type='text', id="manualAssignmentSelection")
+
+          a(class='waves-effect waves-light btn', id='manuallyAssignGuestsToHost') Assign
+          hr
+        td(style="width:50%")
+          | Host(_id)
+          input.validate(type='text', id="automaticHostSelection")
+          | Automatically add N guests dependent on capacity of hosts
+          input.validate(type='text', id="guestsN")
+
+          a(class='waves-effect waves-light btn', id='automaticallyAssignGuestsToHost') Assign
+          hr
+    table
+      tbody
+        td(style="width:50%; vertical-align: text-top;")
+          h6 Guests
+          table
+            thead
+              tr
+                th ID
+                th First Name
+                th Last Name
+                th Host
+                th Comments
+            tbody
+              each guests
+                tr
+                  td {{_id}}
+                  td {{first_name}}
+                  td {{last_name}}
+                  td {{host}}
+                  td {{comments}}
+        td(style="width:50%; vertical-align: text-top;")
+          h6 Hosts
+          table
+            thead
+              tr
+              th ID
+              th Name
+              th Contact
+              th Guest
+              th Contact Guest
+              th Location
+              th Info
+              th Capacity
+            tbody
+              each hosts
+                tr
+                  td {{_id}}
+                  td {{info.name}}
+                  td {{info.contact}}
+                  td {{info.guest}}
+                  td {{info.contactGuest}}
+                  td {{info.location}}
+                  td {{info.info}}
+                  td {{info.capacity}}
