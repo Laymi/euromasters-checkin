@@ -1,7 +1,9 @@
 Meteor.methods
-  automaticallyAssignGuestsToHosts: (GuestId, HostN) ->
+  automaticallyAssignHostsToGuests: (GuestId, HostN) ->
     check GuestId, String
     check HostN, Number
+
+    console.log hostN
 
     if guestId == '' || guestId == undefined
       throw new Meteor.Error 'guestId invalid'
@@ -13,11 +15,11 @@ Meteor.methods
       possibleHostWithLowestGuestload = Hosts.find({ $query: {}, $orderby: { guestload : 1 }})?.fetch()?[counter]
       hostsAlreadyAssignedToGuest = Assignments.findOne(guestId)?.assignedHosts
       counter++
-      while hostsAlreadyAssignedToGuest.indexOf(possibleHostWithLowestWorkload?._id) > -1
-        possibleHostWithLowestWorkload = Hosts.find({ $query: {}, $orderby: { workload : 1 }})?.fetch()?[counter]
+      while hostsAlreadyAssignedToGuest.indexOf(possibleHostWithLowestGuestload?._id) > -1
+        possibleHostWithLowestGuestload = Hosts.find({ $query: {}, $orderby: { guestload : 1 }})?.fetch()?[counter]
         counter++
-      hostWithLowestWorkload = possibleHostWithLowestWorkload
-      if hostWithLowestWorkload?._id?
-        Assignments.update guestId, $addToSet: assignedHosts:hostWithLowestWorkload?._id
+      hostWithLowestGuestload = possibleHostWithLowestGuestload
+      if hostWithLowestGuestload?._id?
+        Assignments.update guestId, $addToSet: assignedHosts:hostWithLowestGuestload?._id
       else
         throw new Meteor.Error 'Insufficient hosts available'
