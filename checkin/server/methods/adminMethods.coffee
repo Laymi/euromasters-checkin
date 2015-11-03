@@ -6,7 +6,7 @@ Meteor.methods
         "_id": Random.id()
         "first_name" : Math.random().toString(36).substring(7)
         "last_name" : Math.random().toString(36).substring(7)
-        "workload" : 0
+        "guestload" : 0
         "exemptionStatus" : ""
         "createdAt": new Date
 
