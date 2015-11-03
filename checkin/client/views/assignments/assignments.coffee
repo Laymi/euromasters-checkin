@@ -12,18 +12,18 @@ Template.Assignments.helpers
 
 
 Template.Assignments.events
-  'click #manuallyAssignGuestsToHostToShift': ->
+  'click #manuallyAssignGuestsToHosts': ->
     Meteor.call 'assignGueststToHosts', document.getElementById('manualGuestSelection').value, document.getElementById('manualHostSelection').value
 
-  'click #automaticallyAssignStudentsToShift': ->
-    shiftId = document.getElementById('automaticShiftSelection').value
-    studentN = parseInt(document.getElementById('studentN').value)
+  'click #automaticallyAssignGuestsToHosts': ->
+    guestId = document.getElementById('automaticGuestSelection').value
+    hostN = parseInt(document.getElementById('hostN').value)
 
-    Meteor.call 'automaticallyAssignStudentsToShift', shiftId, studentN, (err, res) ->
+    Meteor.call 'automaticallyAssignGuestsToHosts', guestId, hostN, (err, res) ->
       if err
         toastr.error err.error
       else
         toastr.success 'Ok.'
 
-  'focus #studentN': ->
-    studentN.value = Shifts.findOne(automaticShiftSelection.value)?.workload or ''
+  'focus #hostN': ->
+    hostN.value = Hosts.findOne(automaticHostSelection.value)?.guestLoad or ''

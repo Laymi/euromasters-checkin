@@ -4,7 +4,7 @@ template(name='Assignments')
     h5 Showing all hosts
 
 
-    a(class='waves-effect waves-light btn', id='automaticallyAssignAllGuestsToHost' style="margin-top:20px; width:auto") Assign all guests
+    a(class='waves-effect waves-light btn', id='automaticallyAssignGuestsToHost' style="margin-top:20px; width:auto") Assign all guests
 
     table
       thead
@@ -22,7 +22,7 @@ template(name='Assignments')
         td(style="width:50%")
           | Host(_id)
           input.validate(type='text', id="automaticHostSelection")
-          | Automatically add N guests dependent on capacity of hosts
+          | Automatically add N guests dependent on guestLoad of hosts
           input.validate(type='text', id="guestsN")
 
           a(class='waves-effect waves-light btn', id='automaticallyAssignGuestsToHost') Assign
@@ -59,7 +59,7 @@ template(name='Assignments')
               th Contact Guest
               th Location
               th Info
-              th Capacity
+              th GuestLoad
             tbody
               each hosts
                 tr
@@ -70,4 +70,4 @@ template(name='Assignments')
                   td {{info.contactGuest}}
                   td {{info.location}}
                   td {{info.info}}
-                  td {{info.capacity}}
+                  td {{info.guestLoad}}
