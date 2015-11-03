@@ -22,8 +22,8 @@ Template.Hosts.events
     document.getElementById('first_name').value = document.getElementById(event.target.name + '-' + 'first_name').innerText
     document.getElementById('last_name').value = document.getElementById(event.target.name + '-' + 'last_name').innerText
     document.getElementById('contact').value = document.getElementById(event.target.name + '-' + 'contact').innerText
+    document.getElementById('email').value = document.getElementById(event.target.name + '-' + 'email').innerText
     document.getElementById('guest').value = document.getElementById(event.target.name + '-' + 'guest').innerText
-    document.getElementById('contactGuest').value = document.getElementById(event.target.name + '-' + 'contactGuest').innerText
     document.getElementById('location').value = document.getElementById(event.target.name + '-' + 'location').innerText
     document.getElementById('info').value = document.getElementById(event.target.name + '-' + 'info').innerText
     document.getElementById('guestload').value = document.getElementById(event.target.name + '-' + 'guestload').innerText
@@ -33,6 +33,15 @@ Template.Hosts.events
     event.preventDefault()
 
     Meteor.call 'deleteHostById', event.target.name
+
+  "click .mailbtn": (event) ->
+    event.preventDefault()
+
+    Meteor.call 'mailHostById', event.target.name
+    to: document.getElementById('email').value = document.getElementById(event.target.name + '-' + 'email').innerText
+    from: "Euromasters"
+    subject: "Your Guests – Euromasters"
+    text: "One of your guests arrived, please pick him/her up"
 
   "click #addNewHost": (event) ->
     event.preventDefault()
@@ -47,9 +56,9 @@ Template.Hosts.events
         "first_name" : document.getElementById('first_name').value
         "last_name" : document.getElementById('last_name').value
         "contact" : document.getElementById('contact').value
-        "guests" : guests
-        "contactGuest": new Date document.getElementById('contactGuest').value
-        "location": new Date document.getElementById('location').value
+        "guests" : document.getElementById('guests')
+        "contactGuest": document.getElementById('contactGuest').value
+        "location": document.getElementById('location').value
         "info": document.getElementById('info').value
         "guestload": document.getElementById('guestload').value
       }
