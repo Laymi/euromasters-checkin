@@ -12,14 +12,14 @@ Template.Assignments.helpers
 
 
 Template.Assignments.events
-  'click #manuallyAssignGuestToHosts': ->
-    Meteor.call 'assignGuestToHosts', document.getElementById('manualGuestSelection').value, document.getElementById('manualHostSelection').value
+  'click #manuallyAssignHostToGuests': ->
+    Meteor.call 'assignHostToGuest', document.getElementById('manualGuestSelection').value, document.getElementById('manualHostSelection').value
 
-  'click #automaticallyAssignGuestsToHosts': ->
+  'click #automaticallyAssignHostsToGuests': ->
     guestId = document.getElementById('automaticGuestSelection').value
     hostN = parseInt(document.getElementById('hostN').value)
 
-    Meteor.call 'automaticallyAssignGuestsToHosts', guestId, hostN, (err, res) ->
+    Meteor.call 'automaticallyAssignHostsToGuests', guestId, hostN, (err, res) ->
       if err
         toastr.error err.error
       else

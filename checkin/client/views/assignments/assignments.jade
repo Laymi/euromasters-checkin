@@ -4,7 +4,7 @@ template(name='Assignments')
     h5 Showing all hosts
 
 
-    a(class='waves-effect waves-light btn', id='automaticallyAssignGuestsToHost' style="margin-top:20px; width:auto") Assign all guests
+    a(class='waves-effect waves-light btn', id='automaticallyAssignHostsToGuests' style="margin-top:20px; width:auto") Assign all Hosts
 
     table
       thead
@@ -17,15 +17,15 @@ template(name='Assignments')
           | Guest(_id)
           input.validate(type='text', id="manualAssignmentSelection")
 
-          a(class='waves-effect waves-light btn', id='manuallyAssignGuestToHost') Assign
+          a(class='waves-effect waves-light btn', id='manuallyAssignHostToGuest') Assign
           hr
         td(style="width:50%")
           | Host(_id)
           input.validate(type='text', id="automaticHostSelection")
           | Automatically add N guests dependent on guestload of hosts
-          input.validate(type='text', id="guestsN")
+          input.validate(type='text', id="hostN")
 
-          a(class='waves-effect waves-light btn', id='automaticallyAssignGuestsToHost') Assign
+          a(class='waves-effect waves-light btn', id='automaticallyAssignHostsToGuests') Assign
           hr
     table
       tbody
@@ -53,10 +53,10 @@ template(name='Assignments')
             thead
               tr
               th ID
-              th Name
+              th Last Name
               th Contact
+              th Email
               th Guest
-              th Contact Guest
               th Location
               th Info
               th Guestload
@@ -64,10 +64,10 @@ template(name='Assignments')
               each hosts
                 tr
                   td {{_id}}
-                  td {{info.name}}
+                  td {{info.last_name}}
                   td {{info.contact}}
-                  td {{info.guest}}
-                  td {{info.contactGuest}}
+                  td {{info.email}}
+                  td {{info.guests}}
                   td {{info.location}}
                   td {{info.info}}
                   td {{info.guestload}}
