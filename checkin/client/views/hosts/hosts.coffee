@@ -23,8 +23,8 @@ Template.Hosts.events
     document.getElementById('last_name').value = document.getElementById(event.target.name + '-' + 'last_name').innerText
     document.getElementById('contact').value = document.getElementById(event.target.name + '-' + 'contact').innerText
     document.getElementById('email').value = document.getElementById(event.target.name + '-' + 'email').innerText
-    document.getElementById('guest').value = document.getElementById(event.target.name + '-' + 'guest').innerText
-    document.getElementById('location').value = document.getElementById(event.target.name + '-' + 'location').innerText
+    document.getElementById('guests').value = document.getElementById(event.target.name + '-' + 'guests').innerText
+    document.getElementById('guest_contact').value = document.getElementById(event.target.name + '-' + 'guest_contact').innerText
     document.getElementById('info').value = document.getElementById(event.target.name + '-' + 'info').innerText
     document.getElementById('guestload').value = document.getElementById(event.target.name + '-' + 'guestload').innerText
 
@@ -48,7 +48,7 @@ Template.Hosts.events
 
     console.log 'addNewHost'
 
-    guests = document.getElementById('guest').value.replace(" ", "").split(",")
+    guests = document.getElementById('guests').value.replace(" ", "").split(",")
 
     newHost =
       "_id": document.getElementById('_id').value or Random.id()
@@ -56,14 +56,22 @@ Template.Hosts.events
         "first_name" : document.getElementById('first_name').value
         "last_name" : document.getElementById('last_name').value
         "contact" : document.getElementById('contact').value
-        "guests" : document.getElementById('guests')
-        "contactGuest": document.getElementById('contactGuest').value
-        "location": document.getElementById('location').value
+        "email" : document.getElementById('email').value
+        "guests" : document.getElementById('guests').value
+        "guest_contact": document.getElementById('guest_contact').value
         "info": document.getElementById('info').value
         "guestload": document.getElementById('guestload').value
       }
       "createdAt": new Date
 
-    Meteor.call 'addNewHost', newHost
 
+    Meteor.call 'addNewHost', newHost
     document.getElementById('_id').value = ''
+    document.getElementById('first_name').value = ''
+    document.getElementById('last_name').value = ''
+    document.getElementById('contact').value = ''
+    document.getElementById('email').value = ''
+    document.getElementById('guests').value = ''
+    document.getElementById('guest_contact').value = ''
+    document.getElementById('info').value = ''
+    document.getElementById('guestload').value = ''
