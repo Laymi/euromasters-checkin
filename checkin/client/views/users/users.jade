@@ -15,9 +15,9 @@ template(name='Users')
         tbody
             tr
               td
-                input(type="text",id="_id" disabled)
+                input(type="text",id="_id")
               td
-                input(type="text",id="email" disabled)
+                input(type="text",id="email")
               td
                 input(type="text",id="role")
               td
@@ -27,7 +27,7 @@ template(name='Users')
               td
                 span(id="{{_id}}-_id") {{_id}}
               td
-                span(id="{{_id}}-email") {{emailAddress}}
+                span(id="{{_id}}-email") {{email}}
               td
                 span(id="{{_id}}-role") {{profile.role}}
               td
