@@ -1,73 +1,37 @@
 template(name='Assignments')
   #assignments
     h3 Assignments
-    h5 Showing all hosts
+    h5 Showing match
 
-
-    a(class='waves-effect waves-light btn', id='automaticallyAssignHostsToGuests' style="margin-top:20px; width:auto") Assign all Hosts
-
-    table
-      thead
-          th(style="width:50%") Manual
-          th(style="width:50%") Automatic
-      tbody
-        td(style="width:50%")
-          | Host(_id)
-          input.validate(type='text', id="manualAssignmentSelection")
-          | Guest(_id)
-          input.validate(type='text', id="manualAssignmentSelection")
-
-          a(class='waves-effect waves-light btn', id='manuallyAssignHostToGuest') Assign
-          hr
-        td(style="width:50%")
-          | Host(_id)
-          input.validate(type='text', id="automaticHostSelection")
-          | Automatically add N guests dependent on guestload of hosts
-          input.validate(type='text', id="hostN")
-
-          a(class='waves-effect waves-light btn', id='automaticallyAssignHostsToGuests') Assign
-          hr
+    if specificAssignment
+      a(class='waves-effect waves-light btn', id='notify', style='margin-right:120px') Notify
+    
     table
       tbody
-        td(style="width:50%; vertical-align: text-top;")
-          h6 Guests
+        td
+          h6 Assignment
           table
             thead
               tr
-                th ID
-                th First Name
-                th Last Name
-                th Host
-                th Comments
+              td _id
+              td host_last_name
+              td host_first_name
+              td mobile
+              td address
+              td participant_first_name
+              td participant_last_name
+              td university
+              td Open
             tbody
-              each guests
+              each assignments
                 tr
                   td {{_id}}
-                  td {{first_name}}
-                  td {{last_name}}
-                  td {{host}}
-                  td {{comments}}
-        td(style="width:50%; vertical-align: text-top;")
-          h6 Hosts
-          table
-            thead
-              tr
-              th ID
-              th Last Name
-              th Contact
-              th Email
-              th Guest
-              th Location
-              th Info
-              th Guestload
-            tbody
-              each hosts
-                tr
-                  td {{_id}}
-                  td {{info.last_name}}
-                  td {{info.contact}}
-                  td {{info.email}}
-                  td {{info.guests}}
-                  td {{info.location}}
-                  td {{info.info}}
-                  td {{info.guestload}}
+                  td {{host_last_name}}
+                  td {{host_first_name}}
+                  td {{mobile}}
+                  td {{address}}
+                  td {{participant_first_name}}
+                  td {{participant_last_name}}
+                  td {{university}}
+                  td 
+                    a(class='waves-effect waves-light btn', href='{{pathFor "assignments"}}' style='margin-right:120px') Open

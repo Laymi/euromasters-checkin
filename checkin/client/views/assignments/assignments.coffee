@@ -1,15 +1,17 @@
-#Meteor.subscribe 'allShifts'
+Meteor.subscribe 'allAssignments'
 Template.Assignments.helpers
-  hosts: ->
-    hosts = Hosts.find().fetch()
-    console.log 'hosts', hosts
-    if hosts.length then hosts else null
+  assignments: ->
+    specificAssignment = Router?.current()?.params?._id
+    if specificAssignment != "" && specificAssignment != null && specificAssignment?
+      assignments = Assignments.find(specificAssignment).fetch()
+    else
+      assignments = Assignments.find().fetch()
+    console.log 'assignments', assignments
+    if assignments.length then assignments else null
 
-  guests: ->
-    guests = Guests.find().fetch()
-    console.log 'guest', guests
-    if guests.length then guests else null
-
+  specificAssignment: ->
+    params = Router?.current()?.params?._id
+    return (params != "" && params != null && params?)
 
 Template.Assignments.events
   'click #manuallyAssignHostToGuests': ->
