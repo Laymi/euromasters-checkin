@@ -39,9 +39,11 @@ Meteor.methods
     check assignmentId, String
     assignment = Assignments.findOne(assignmentId)
     console.log 'assignment', assignment
-    Email.send({
-      to: 'service@danielpesch.com',
-      from: 'bettenboerse@whu.edu',
-      subject: 'You Quietschie arrived',
-      text: 'You Quietschie arrived, come to H001'
-    });
+    Mandrill.messages.send
+      message:
+        subject: 'Your schlafie arrived.'
+        text: "Go pick him/her up at H001"
+        from_email: 'bettenboerse@whu.edu'
+        to: [
+            email: 'service@danielpesch.com'
+        ]

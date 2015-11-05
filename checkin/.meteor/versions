@@ -78,3 +78,4 @@ useraccounts:core@1.12.3
 useraccounts:materialize@1.12.3
 webapp@1.2.0
 webapp-hashing@1.0.3
+wylio:mandrill@1.0.1
