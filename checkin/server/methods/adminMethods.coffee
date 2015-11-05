@@ -36,6 +36,7 @@ Meteor.methods
     console.log 'test@test.de', 'test1234'
 
   notifyHost: (assignmentId) ->
+    check assignmentId, String
     assignment = Assignments.findOne(assignmentId)
     console.log 'assignment', assignment
     Email.send({
