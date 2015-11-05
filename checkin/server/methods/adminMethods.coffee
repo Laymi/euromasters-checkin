@@ -34,3 +34,13 @@ Meteor.methods
       password: 'test1234'
 
     console.log 'test@test.de', 'test1234'
+
+  notifyHost: (assignmentId) ->
+    assignment = Assignments.findOne(assignmentId)
+    console.log 'assignment', assignment
+    Email.send({
+      to: 'service@danielpesch.com',
+      from: 'bettenboerse@whu.edu',
+      subject: 'You Quietschie arrived',
+      text: 'You Quietschie arrived, come to H001'
+    });

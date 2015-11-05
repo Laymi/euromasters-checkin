@@ -27,5 +27,9 @@ Template.Assignments.events
       else
         toastr.success 'Ok.'
 
+  'click #notify': ->
+    assignmentId = Router?.current()?.params?._id
+    Meteor.call 'notifyHost', assignmentId
+
   'focus #hostN': ->
     hostN.value = Hosts.findOne(automaticHostSelection.value)?.guestload or ''
