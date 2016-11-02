@@ -37,7 +37,7 @@ Meteor.methods
 
   notifyHost: (assignmentId) ->
     check assignmentId, String
-    assignment = Assignments.findOne(assignmentId)
+    assignment = Assignments.findOne("_id":assignmentId)
     console.log 'assignment', assignment
     Mandrill.messages.send
       message:
