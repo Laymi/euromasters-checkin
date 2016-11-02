@@ -4,16 +4,14 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
-accounts-password
-audit-argument-checks
-coffeescript
-less
+accounts-password@1.3.1
+audit-argument-checks@1.0.7
+coffeescript@1.11.1_2
+less@2.7.6
 aldeed:collection2
 aldeed:autoform
 iron:router
 mquandalle:jade
-materialize:materialize
 useraccounts:materialize
 gildaspk:autoform-materialize
 fortawesome:fontawesome
@@ -21,5 +19,24 @@ ixdi:material-design-iconic-font
 fermuch:pickadate
 momentjs:moment
 chrismbeckett:toastr
-email
+email@1.1.18
 wylio:mandrill
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+standard-minifier-css
+standard-minifier-js
+shell-server
+fourseven:scss@3.8.0_1
+metrophobe:materialize
+abhiaiyer:meteor-twilio

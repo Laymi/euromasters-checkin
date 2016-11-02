@@ -1,3 +1,7 @@
+Mandrill.config
+  username: "Daniel Pesch Software"
+  key: "G6re1XDVlBCbIUb0ybqOsg"
+
 Meteor.methods
   populateDatabase: (N = 0) ->
     check N, Number
@@ -39,11 +43,21 @@ Meteor.methods
     check assignmentId, String
     assignment = Assignments.findOne("_id":assignmentId)
     console.log 'assignment', assignment
+    client = Twilio('ACefe8c60a1534e65e49210fc106fcd5e7', '956f806569be3a8e12adec4ebaeef884')
+    client.sendMessage {
+      to: assignment?.mobile
+      from: '+4915735986734'
+      body: 'Strategy& dankt Ihnen für Ihre Bewerbung.'
+    }, (err, responseData) ->
+      if !err
+        console.log responseData.from
+        console.log responseData.body
+      return
     Mandrill.messages.send
       message:
         subject: 'Your schlafie arrived.'
         text: "Go pick him/her up at H001"
-        from_email: 'bettenboerse@whu.edu'
+        from_email: 'schichten@danielpesch.com'
         to: [
-            email: 'service@danielpesch.com'
+            email: assignment?.email
         ]
