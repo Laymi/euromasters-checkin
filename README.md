@@ -1,7 +1,8 @@
 # Euromasters-checkin
 Tool for coordinating the checkin of the Euromasters initiative at WHU.
-#####The default website port is 3000 (you can specify a --port XX option)
-#####The default mongodb port is 3001 (or website+1)
+
+##### The default website port is 3000 (you can specify a --port XX option)
+##### The default mongodb port is 3001 (or website+1)
 
 # Setup
 ##### You need to have git already installed
